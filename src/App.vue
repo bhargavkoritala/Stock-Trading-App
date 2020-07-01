@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <nav class="navbar navbar-expand-lg navbar-light">
-      <router-link class="navbar-brand" to="/" active-class="active" exact><img src="https://www.stardock.com/offworldtradingcompany/press/logos/otc-icon.png" width="30" height="30" alt=""></router-link>
+      <router-link class="navbar-brand" to="/" active-class="active" exact>
+      <i class="fas fa-chart-line"></i>
+      </router-link>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -14,15 +16,15 @@
         <div>
           <ul class="navbar-nav">
             <li class="nav-item">
-              <p id="end" @click="ced" class="nav-link">End day</p>
+              <p id="end" @click="$store.commit('endDay')" class="nav-link">End day</p>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Save & Load
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Save Data</a>
-                <a class="dropdown-item" href="#">Load Data</a>
+                <a class="dropdown-item" @click="saveMarketAction">Save Data</a>
+                <a class="dropdown-item" @click="loadMarketAction">Load Data</a>
               </div>
           </li>
           <li class="nav-item">
@@ -38,12 +40,13 @@
 </template>
 
 <script>
+import {mapActions} from 'vuex';
 export default {
-  methods : {
-    ced(){
-      alert('hi !');
-    }
-  }
+  methods : mapActions([
+    'saveMarketAction',
+    'loadMarketAction'
+  ])
+    
 }
 </script>
 
@@ -61,9 +64,7 @@ export default {
 }
 
 .navbar-brand,.nav-link{
-  color: lightcoral !important;
+  color: whitesmoke !important;
 }
-
-.navbar-nav > li > .dropdown-menu { background-color: lightcoral; }
 
 </style>

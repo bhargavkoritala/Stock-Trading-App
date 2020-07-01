@@ -25,7 +25,7 @@ export default {
   text-align: left;
   /* border : 1px solid rgba(240,128,128,1); */
   border-radius:3vh;
-  background-color:rgba(240,128,128,0.2);
+  /* background-color:#2e85f7f1; */
 }
 
 </style>

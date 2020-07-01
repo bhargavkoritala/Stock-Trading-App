@@ -16,14 +16,9 @@ export default {
   components :{
     appStock : Stock
   },
-  data(){
-    return {
-      market : this.$store.state.shares
-      }
-  },
-  methods :{
-    buyShares(event){
-      console.log(event);
+  computed : {
+    market(){
+      return this.$store.state.shares
     }
   }
 }

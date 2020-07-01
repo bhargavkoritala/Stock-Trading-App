@@ -1,5 +1,5 @@
 <template>
-    <div class="stock">
+    <div class="stock alert alert-info rounded">
         <div class="m-3 border title">
           <strong>{{company}}</strong>
           &nbsp;
@@ -7,9 +7,9 @@
         </div>
         <form class="m-3 justify-content-between form-inline">
           <div class="form-group mx-sm-3 mb-2">
-            <input v-model='quantity' type="number" class="form-control" id="quantity" placeholder="Quantity">
+            <input v-model='quantity' type="number" class="form-control" id="quantity" placeholder="Quantity" required/>
           </div>
-          <button @click.prevent="buyShares" class="btn btn-light mb-2">Buy</button>
+          <button type="submit" @click.prevent="buyShares" class="border btn btn-light mb-2">Buy</button>
         </form>
     </div>
 </template>
@@ -47,22 +47,17 @@ export default {
 
 <style>
 .border{
-  border-color: lightcoral !important;
+  border-color: blue !important;
   border-radius:1vh;
   background-color:white;
 }
 
 .title{
-  background-color:white;
-  color: lightcoral;
-}
-
-button{
-  color: white !important;
-  background-color: lightcoral !important;
+  /* background-color:white; */
+  color:blue;
 }
 
 input{
-  border-color: lightcoral !important;
+  border-color: blue !important;
 }
 </style>
